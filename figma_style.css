@@ -1,15 +1,32 @@
-/*html{
+html{
+    background-color: #FBFDFF;
 
 }
 body{
-
+    font: Arial;
+    font-weight: 400;
+    size: 14px; 
+    line-height: 20px;
 }
-header{
 
+header{
+    color: #39496A;
+    font-weight:600;
+    size: 16px; 
+    line-height: 24px;
 }
 
 div{
 
+}
+
+button{
+    background-color: #FFFF;
+    border: none;
+} 
+
+button:hover{
+    color: blue;
 }
 
 ul{
@@ -18,4 +35,4 @@ ul{
 
 li{
 
-}*/
+}

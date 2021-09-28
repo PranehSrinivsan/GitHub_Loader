@@ -5,21 +5,24 @@ gitForm.addEventListener('submit', (e) => {
     e.preventDefault();
 
     let username = document.getElementById('gitUsername');
+    let reponame=document.getElementById('gitRepos');
+    let gitoid=document.getElementById('gitOID');
 
-    let gitUsername = username.value;          
+    let gitUsername = username.value;
+    let gitRepository=reponame.value;
+    let githuboid=gitoid.value;          
 
-    requestUserRepos(gitUsername);
+    requestUserRepos(gitUsername,gitRepository,githuboid);
 
 })
 
 
-function requestUserRepos(owner){
+function requestUserRepos(owner,repository,oid){
     
     const xhr = new XMLHttpRequest();
 
-    const url = `https://api.github.com/users/${owner}/repos`;
-    //const url=`https://mini-git.fsdev.org/repositories/{owner}/{repository}/commits/{oid}`;
-    //const url=`https://mini-git.fsdev.org/repositories/{owner}/{repository}/commits/{oid}/diff`;
+    const url=`https://api.github.com/repos/${owner}/${repository}/commits/${oid}`;
+    //const url=`https://api.github.com/repos/${owner}/${repository}/commits/${oid}/diff`;
    
     xhr.open('GET', url, true);
     
@@ -30,6 +33,7 @@ function requestUserRepos(owner){
 
         console.log(data);
         
+        /*
         for (let i in data) {
 
             let ul = document.getElementById('userRepos');
@@ -45,6 +49,8 @@ function requestUserRepos(owner){
             `);
             ul.appendChild(li);
         }
+        */
+        
     }
     
     xhr.send();    
